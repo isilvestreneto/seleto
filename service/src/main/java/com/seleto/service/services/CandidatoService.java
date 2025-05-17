@@ -13,13 +13,15 @@ public class CandidatoService {
         this.candidatoRepository = candidatoRepository;
     }
 
-    public boolean criarCandidato(Candidato candidato) {
+    public Candidato criarCandidato(Candidato candidato) {
+        candidato.setStatus_inscricao("PENDENTE");
+
         Candidato saved = candidatoRepository.save(candidato);
 
         if (saved != null) {
-            return true;
+            return saved;
         }
-
-        return false;
+        // Se o candidato não foi salvo, lança uma exceção
+        throw new RuntimeException("Erro ao salvar o candidato");
     }
 }

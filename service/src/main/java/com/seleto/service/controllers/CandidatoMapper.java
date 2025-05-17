@@ -15,4 +15,6 @@ public interface CandidatoMapper {
     List<DocumentoDTO> toDocumentoDTOList(List<Documento> documentos);
 
     List<Documento> toDocumentoList(List<DocumentoDTO> dtos);
+
+    CandidatoDTO toCandidatoDTO(Candidato candidato);
 }

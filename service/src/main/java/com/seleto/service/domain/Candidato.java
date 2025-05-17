@@ -38,10 +38,10 @@ public class Candidato {
     private List<Documento> documentos = new ArrayList<>();
 
     @Column(nullable = false)
-    private String status_inscricao; // (ex: DEFERIDO, INDEFERIDO)
+    private String status_inscricao = "PENDENTE"; // (ex: DEFERIDO, INDEFERIDO)
 
     @Column(nullable = false)
-    private double pontuacaoFinal;
+    private Double pontuacaoFinal = 0.0; // (ex: 0.0, 1.0, 2.0) - pontuação final do candidato
 
     public Candidato() {
 
