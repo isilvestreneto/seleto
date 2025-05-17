@@ -1,5 +1,6 @@
 package com.seleto.service.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,13 +27,15 @@ public class Edital {
     private String descricao;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataInicio;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFim;
 
     @Column(nullable = false)
-    private boolean criterios_default_aplicados; // (flag para saber se foi manual ou automático)
+    private boolean criterios_default_aplicados = true; // (flag para saber se foi manual ou automático)
 
     public Edital() {
     }
