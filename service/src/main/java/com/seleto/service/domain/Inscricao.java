@@ -1,9 +1,6 @@
 package com.seleto.service.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,11 +16,13 @@ public class Inscricao {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
-    private Long idCandidato;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "candidato_id")
+    private Candidato candidato;
 
-    @Column(nullable = false)
-    private Long idEdital;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "edital_id")
+    private Edital edital;
 
     @Column(nullable = false)
     private LocalDate dataInscricao;
